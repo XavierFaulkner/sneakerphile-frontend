@@ -2,11 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from './context/AuthProvider';
-import Login from "./pages/Login"
-import Layout from "./pages/Layout"
-import Home from "./pages/Home"
-import Missing from "./pages/Missing"
-import Register from "./pages/Register"
+import RequireAuth from './components/RequireAuth';
+import Login from "./components/Login"
+import Layout from "./components/Layout"
+import Home from "./components/Home"
+import Missing from "./components/Missing"
+import Register from "./components/Register"
+import Unauthorized from './components/Unauthorized';
+import Admin from './components/Admin';
 
 export default function App() {
   return (
@@ -15,9 +18,16 @@ export default function App() {
         {/* public routes */}
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
+        <Route path="unauthorized" element={<Unauthorized />} />
 
         {/* private routes */}
-        <Route index element={<Home />} />
+        <Route element={<RequireAuth allowedRoles={["ROLE_USER"]}/>}>
+          <Route index element={<Home />} />
+        </Route>
+
+        <Route element={<RequireAuth allowedRoles={["ROLE_ADMIN"]}/>}>
+          <Route path="admin" element={<Admin />} />
+        </Route>
 
         {/* catch all */}
         <Route path="*" element={<Missing />} />
