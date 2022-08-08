@@ -10,6 +10,7 @@ import Missing from "./components/Missing"
 import Register from "./components/Register"
 import Unauthorized from './components/Unauthorized';
 import Admin from './components/Admin';
+import './components/styles.css';
 
 export default function App() {
   return (

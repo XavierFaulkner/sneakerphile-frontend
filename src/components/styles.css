@@ -1,0 +1,155 @@
+body {
+    margin: 0px;
+    background-color: #C5CEE0;
+}
+
+header {
+    background-color: #611F63;
+    display: flex;
+    align-items: center;
+    height: 70px;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Nav menu and header---------------------------------- */
+
+#navLink {
+    background: none;
+    border: none;
+    text-decoration: none;
+    color: white;
+    font-size: 40px;
+    padding: 10px 20px 10px 20px;
+    cursor: pointer;
+    height: 100%;
+}
+
+.dropdown {
+    position: relative;
+    height: 100%;
+}
+
+.dropdown-menu {
+    position: absolute;
+    left: 0;
+    top: 70px;
+    width: 100%;
+    background-color: #253960;
+    color: white;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown.active > #navLink + .dropdown-menu {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.dropdown-menu a {
+    height: 70px;
+    text-decoration: none;
+    font-size: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a:visited {
+    color: inherit;
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Login page ------------------------------------------------------- */
+#loginForm {
+    width: 500px;
+    height: 250px;
+    border-style: none;
+    background-color: #753677;
+    border-radius: 20px;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
+}
+
+#loginFormTitle {
+    width: 100%;
+    background-color: #611F63;
+    height: 45px;
+    border-radius: 20px 20px 0px 0px;
+    display: flex;
+    align-items: center;
+}
+
+#loginFormTitle h1{
+    margin-left: 20px;
+    color: white;
+}
+
+#loginForm p span {
+    margin-left: 10px;
+    text-decoration: underline;
+}
+
+.submitButton {
+    border-style: none;
+    border-radius: 5px;
+    background-color: #253960;
+    color: white;
+    margin-top: 20px;
+    font-size: 18px;
+    padding: 10px;
+}
+
+.submitButton:hover {
+    background-color: #3D5179;
+}
+
+.center {
+    align-self: center;
+}
+
+/* Register page -------------------------------------------------- */
+#registerForm {
+    width: 500px;
+    border-style: none;
+    background-color: #753677;
+    border-radius: 20px;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    box-shadow: 12px 12px 2px 1px rgba(117, 54, 119, .3);
+    padding-bottom: 20px;
+}
+
+.inputHolder {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.formInput {
+    margin: 20px 0px 0px 0px;
+    font-size: 20px;
+    
+}
+
+.formInput input {
+    margin: 0px 0px 0px 10px;
+}

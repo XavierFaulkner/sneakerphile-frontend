@@ -85,34 +85,42 @@ export default function Login() {
     return (
         <section>
             <p ref={errRef}>{errMsg}</p>
-            <h1>Sign In</h1>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="username">Username:</label>
-                <input 
-                    type="text" 
-                    id="username" 
-                    ref={userRef} 
-                    autoComplete="off"
-                    onChange={(e) => setUser(e.target.value)}
-                    value={user}
-                    required
-                />
-                <label htmlFor="password">Password:</label>
-                <input 
-                    type="password" 
-                    id="password"
-                    onChange={(e) => setPwd(e.target.value)}
-                    value={pwd}
-                    required
-                />
-                <button>Sign in</button>
-            </form>
-            <p>
-                Need an Account?<br />
+            <form id="loginForm" onSubmit={handleSubmit}>
+                <div id="loginFormTitle">
+                    <h1>Login</h1>
+                </div>
+                <div className='inputHolder'>
+                    <div className="formInput">
+                        <label htmlFor="username">Username:</label>
+                        <input 
+                            type="text" 
+                            id="username" 
+                            ref={userRef} 
+                            autoComplete="off"
+                            onChange={(e) => setUser(e.target.value)}
+                            value={user}
+                            required
+                        />
+                    </div>
+                    <div className="formInput">
+                        <label htmlFor="password">Password:</label>
+                        <input 
+                            type="password" 
+                            id="password"
+                            onChange={(e) => setPwd(e.target.value)}
+                            value={pwd}
+                            required
+                        />
+                    </div>
+                </div>
+                <button className='submitButton center'>Sign in</button>
+                <p className='center'>
+                Need an Account?
                 <span className="line">
                     <Link to="/register">Register</Link>
                 </span>
             </p>
+            </form>
         </section>
     )
 }

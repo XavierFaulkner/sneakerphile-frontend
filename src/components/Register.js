@@ -55,67 +55,79 @@ export default function Register() {
   }
 
   return (
-    <>
+    <section>
       <p>{errMsg}</p>
-      <form onSubmit={saveUser}>
-        <label htmlFor='firstName'>First Name:</label>
-        <input 
-          type="text"
-          id="firstName"
-          onChange={(e) => setFirstName(e.target.value)}
-          required
-        />
-        <br />
-        <label htmlFor='lastName'>Last Name:</label>
-        <input 
-          type="text"
-          id="lastName"
-          onChange={(e) => setLastName(e.target.value)}
-          required
-        />
-        <br/>
-        <label htmlFor='email'>Email:</label>
-        <input 
-          type="email"
-          id="email"
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <br/>
-        <label htmlFor='age'>Age:</label>
-        <input 
-          type="number"
-          id="age"
-          onChange={(e) => setAge(e.target.value)}
-          required
-        />
-        <br/>
-        <label htmlFor='zipcode'>Zipcode:</label>
-        <input 
-          type="text"
-          id="zipcode"
-          onChange={(e) => setLocation(e.target.value)}
-          required
-        />
-        <br/>
-        <label htmlFor='username'>Username:</label>
-        <input 
-          type="text"
-          id="username"
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        />
-        <br/>
-        <label htmlFor='pwd'>Password:</label>
-        <input 
-          type="text"
-          id="pwd"
-          onChange={(e) => setPwd(e.target.value)}
-          required
-        />
-        <br/>
-        <button>Register</button>
+      <form id="registerForm" onSubmit={saveUser}>
+        <div id="loginFormTitle">
+          <h1>Register</h1>
+        </div>
+        <div className='inputHolder'>
+          <div className='formInput'>
+            <label htmlFor='firstName'>First Name:</label>
+            <input 
+              type="text"
+              id="firstName"
+              onChange={(e) => setFirstName(e.target.value)}
+              required
+            />
+          </div>
+          <div className='formInput'>
+            <label htmlFor='lastName'>Last Name:</label>
+            <input 
+              type="text"
+              id="lastName"
+              onChange={(e) => setLastName(e.target.value)}
+              required
+            />
+          </div>
+          <div className='formInput'>
+            <label htmlFor='email'>Email:</label>
+            <input 
+              type="email"
+              id="email"
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+          <div className='formInput'>
+            <label htmlFor='age'>Age:</label>
+            <input 
+              type="number"
+              id="age"
+              onChange={(e) => setAge(e.target.value)}
+              required
+            />
+          </div>
+          <div className='formInput'>
+            <label htmlFor='zipcode'>Zipcode:</label>
+            <input 
+              type="text"
+              id="zipcode"
+              onChange={(e) => setLocation(e.target.value)}
+              required
+            />
+          </div>
+          <div className='formInput'>
+            <label htmlFor='username'>Username:</label>
+            <input 
+              type="text"
+              id="username"
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
+          </div>
+          <div className='formInput'>
+            <label htmlFor='pwd'>Password:</label>
+            <input 
+              type="text"
+              id="pwd"
+              onChange={(e) => setPwd(e.target.value)}
+              required
+            />
+          </div>
+        </div>
+        <button className='submitButton center'>Register</button>
       </form>
-    </>
+    </section>
   )
 }
