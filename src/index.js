@@ -5,7 +5,7 @@ import { AuthProvider } from './context/AuthProvider';
 import RequireAuth from './components/RequireAuth';
 import Login from "./components/Login"
 import Layout from "./components/Layout"
-import Home from "./components/Home"
+import Feed from './components/Feed';
 import Missing from "./components/Missing"
 import Register from "./components/Register"
 import Unauthorized from './components/Unauthorized';
@@ -20,14 +20,11 @@ export default function App() {
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="unauthorized" element={<Unauthorized />} />
+        <Route path="feed" element={<Feed />} />
 
         {/* private routes */}
         <Route element={<RequireAuth allowedRoles={["ROLE_USER"]}/>}>
-          <Route index element={<Home />} />
-        </Route>
-
-        <Route element={<RequireAuth allowedRoles={["ROLE_ADMIN"]}/>}>
-          <Route path="admin" element={<Admin />} />
+          <Route path="feed" element={<Feed />} />
         </Route>
 
         {/* catch all */}

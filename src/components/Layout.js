@@ -1,6 +1,7 @@
 import { Outlet, Link} from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import Header from "./Header";
+import Footer from "./Footer";
 
 const Layout = () => {
   const {auth} = useAuth();
@@ -9,9 +10,8 @@ const Layout = () => {
   return (
     <>
       <Header />
-      <p>Logged in as: {auth?.user}</p>
-      <p>Accesstoken: {auth?.accessToken}</p>
       <Outlet />
+      <Footer />
     </>
   )
 };

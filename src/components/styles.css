@@ -1,6 +1,6 @@
 body {
     margin: 0px;
-    background-color: #C5CEE0;
+    background-color: #E1E1E1;
 }
 
 header {
@@ -8,6 +8,7 @@ header {
     display: flex;
     align-items: center;
     height: 70px;
+    box-shadow: 0px 0px 15px 0px;
 }
 
 section {
@@ -78,19 +79,20 @@ a {
     height: 250px;
     border-style: none;
     background-color: #753677;
-    border-radius: 20px;
+    border-radius: 10px;
     align-self: center;
     display: flex;
     flex-direction: column;
     color: white;
-    box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, .75);
+    margin-top: 10%;
 }
 
 #loginFormTitle {
     width: 100%;
     background-color: #611F63;
     height: 45px;
-    border-radius: 20px 20px 0px 0px;
+    border-radius: 10px 10px 0px 0px;
     display: flex;
     align-items: center;
 }
@@ -128,13 +130,14 @@ a {
     width: 500px;
     border-style: none;
     background-color: #753677;
-    border-radius: 20px;
+    border-radius: 10px;
     align-self: center;
     display: flex;
     flex-direction: column;
     color: white;
-    box-shadow: 12px 12px 2px 1px rgba(117, 54, 119, .3);
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, .75);
     padding-bottom: 20px;
+    margin-top: 8%;
 }
 
 .inputHolder {
@@ -152,4 +155,31 @@ a {
 
 .formInput input {
     margin: 0px 0px 0px 10px;
+}
+
+/* Feed page -------------------------------------------------------- */
+#feedContainer {
+    width: 55%;
+    border-style: none;
+    background-color: #753677;
+    border-radius: 10px;
+    align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, .75);
+    padding-bottom: 20px;
+    margin-top: 4%;
+    margin-left: 15%;
+    height: 500px;
+}
+
+/* Footer ------------------------------------------------------------- */
+footer {
+    width: 100%;
+    height: 50px;
+    background-color: #A4A4A4;
+    position: absolute;
+    bottom: 0;
+    box-shadow: 0px 0px 15px 0px;
 }

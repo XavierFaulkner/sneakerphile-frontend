@@ -56,7 +56,6 @@ export default function Register() {
 
   return (
     <section>
-      <p>{errMsg}</p>
       <form id="registerForm" onSubmit={saveUser}>
         <div id="loginFormTitle">
           <h1>Register</h1>

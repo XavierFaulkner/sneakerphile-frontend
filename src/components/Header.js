@@ -1,14 +1,16 @@
 import React, {useState} from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import useAuth from "../hooks/useAuth";
 
 export default function Header() {
     const {auth} = useAuth();
     const {setAuth} = useAuth();
     const [isActive, setIsActive] = useState(false)
+    const navigate = useNavigate();
 
     const logout = () => {
         setAuth(null);
+        navigate("/login");
       }
 
     const setActive = () => {
@@ -54,7 +56,7 @@ export default function Header() {
                 {auth?.user
                     ? (
                         <>
-                            <Link to="/">Home</Link>
+                            <Link to="/feed">Feed</Link>
                             <button onClick={logout}>logout</button>
                         </>
                     )
@@ -62,6 +64,7 @@ export default function Header() {
                         <>
                             <Link to="/register">Register</Link>
                             <Link to="/login">Login</Link>
+                            <Link to="/feed">Feed</Link>
                         </>
                     )
                 }
