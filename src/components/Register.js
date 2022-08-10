@@ -1,8 +1,8 @@
 import { React, useState } from 'react'
 import { useNavigate } from "react-router-dom";
 import axios from "../api/axois";
-import useAuth from '../hooks/useAuth';
 const SAVE_USER_URL = "http://localhost:8080/api/user/save";
+const ASSIGN_USER_ROLE = "http://localhost:8080/api/role/giveUserRole"
 
 export default function Register() {
   const [firstName, setFirstName] = useState('');
@@ -14,13 +14,11 @@ export default function Register() {
   const [location, setLocation] = useState('');
   const [errMsg, setErrMsg] = useState('');
   const navigate = useNavigate();
-  const {auth} = useAuth();
 
   const saveUser = async(e) => {
     e.preventDefault();
-    console.log(auth.user);
     try {
-      const response = await axios.post(SAVE_USER_URL,
+      await axios.post(SAVE_USER_URL,
           {
             id: null,
             firstName: firstName,
@@ -30,15 +28,30 @@ export default function Register() {
             location: location,
             username: username,
             password: pwd,
-            roles: []
+            closets: [],
+            roles: [],
+            friendRequests: [],
+            tradeOffers: [],
+            alerts: [],
+            friends: [],
+            friendsOf: []
           },
           {
               headers: {
                 'Content-Type': 'application/json'
               }
           });
-      console.log(response);
-      navigate("login");
+      await axios.post(ASSIGN_USER_ROLE,
+        {
+          username: username,
+          roleName: "ROLE_USER"
+        },
+        {
+            headers: {
+              'Content-Type': 'application/json'
+            }
+        });
+      navigate("/login");
   } catch (err) {
       if(!err?.response) {
           setErrMsg('No Server Response');
@@ -48,6 +61,7 @@ export default function Register() {
           setErrMsg('Unauthorized');
       } else if (err.response?.status === 403) {
           setErrMsg('User not found');
+          console.log(errMsg)
       } else {
           setErrMsg('Login Failed');
       }

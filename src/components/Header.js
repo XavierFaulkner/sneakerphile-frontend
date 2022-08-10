@@ -55,21 +55,29 @@ export default function Header() {
             <div className='dropdown-menu' onClick={setActive}>
                 {auth?.user
                     ? (
-                        <>
+                        <>  
+                            <Link to="/account">Account</Link>
                             <Link to="/feed">Feed</Link>
-                            <button onClick={logout}>logout</button>
+                            <button id="logoutButton" onClick={logout}>logout</button>
                         </>
                     )
                     : (
                         <>
                             <Link to="/register">Register</Link>
                             <Link to="/login">Login</Link>
-                            <Link to="/feed">Feed</Link>
                         </>
                     )
                 }
             </div>
         </div>
+        {auth?.user
+            ? (
+                <p>Welcome {auth?.user}</p>
+            ) : (
+                <></>
+            )
+
+        }
         </header>
     )
 }

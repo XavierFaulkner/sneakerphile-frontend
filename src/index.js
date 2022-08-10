@@ -9,7 +9,7 @@ import Feed from './components/Feed';
 import Missing from "./components/Missing"
 import Register from "./components/Register"
 import Unauthorized from './components/Unauthorized';
-import Admin from './components/Admin';
+import Account from './components/Account'
 import './components/styles.css';
 
 export default function App() {
@@ -20,11 +20,11 @@ export default function App() {
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="unauthorized" element={<Unauthorized />} />
-        <Route path="feed" element={<Feed />} />
 
         {/* private routes */}
         <Route element={<RequireAuth allowedRoles={["ROLE_USER"]}/>}>
           <Route path="feed" element={<Feed />} />
+          <Route path="account" element={<Account />} />
         </Route>
 
         {/* catch all */}
