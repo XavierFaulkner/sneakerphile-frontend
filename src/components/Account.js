@@ -120,7 +120,6 @@ export default function Account() {
         {
           headers: {'Authorization': `Bearer ${auth?.accessToken}`}
         });
-        console.log(response)
       await axios.post(ASSIGN_SHOE,
         {},
         {
